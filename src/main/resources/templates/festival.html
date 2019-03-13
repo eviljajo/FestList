@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot: javabeginnerstutorial.com</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div th:if="${not #lists.isEmpty(festival)}">
+<h2>Person List</h2>
+<table class="glyphicon glyphicon-calendar">
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Country</th>
+<th>Email</th>
+<th>Main genre</th>
+<th>Link</th>
+</tr>
+<tr th:each="festival : ${festival}">
+<td th:text="${festival.id}"></td>
+<td th:text="${festival.name}"></td>
+<td th:text="${festival.country}"></td>
+<td th:text="${festival.email}"></td>
+<td th:text="${festival.mainGenre}"></td>
+<td th:text="${festival.link}"></td>
+</tr>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Personal Festival List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>New Festival</h1>
+<form action="#" th:action="@{/festival}" th:object="${festival}" method="post">
+<p>Name: <input type="text" th:field="*{name}"/></p>
+<p>Country: <input type="text" th:field="*{country}"/></p>
+<p>Email: <input type="text" th:field="*{email}"/></p>
+<p>Link: <input type="text" th:field="*{mainGenre}"/></p>
+<p>Main genre: <input type="text" th:field="*{link}"/></p>
+<p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+</form>
+</body>
+</html>
