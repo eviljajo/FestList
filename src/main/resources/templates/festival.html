@@ -1,13 +1,18 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Spring Boot: javabeginnerstutorial.com</title>
+<title>Festival List </title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
 <div th:if="${not #lists.isEmpty(festival)}">
-<h2>Person List</h2>
-<table class="glyphicon glyphicon-calendar">
+<h2>Festival List</h2>
+
+<div align="left">
+<input type="text" id="myInput" placeholder="Search...">
+
+</div>
+<table class="table">
 <tr>
 <th>Id</th>
 <th>Name</th>
@@ -16,6 +21,7 @@
 <th>Main genre</th>
 <th>Link</th>
 </tr>
+<tbody id="myTable">
 <tr th:each="festival : ${festival}">
 <td th:text="${festival.id}"></td>
 <td th:text="${festival.name}"></td>
@@ -27,4 +33,15 @@
 </table>
 </div>
 </body>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script>
+$(document).ready(function(){
+	  $("#myInput").on("keyup", function() {
+	    var value = $(this).val().toLowerCase();
+	    $("#myTable tr").filter(function() {
+	      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	    });
+	  });
+	});
+</script>
 </html>
