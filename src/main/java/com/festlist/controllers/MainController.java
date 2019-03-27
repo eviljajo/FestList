@@ -47,7 +47,7 @@ public class MainController  {
 	@RequestMapping(value ="/delete/{id}", method = RequestMethod.GET)
 	public String deleteFestival(@PathVariable Long id, Model model) {
 		festivalService.deleteFestival(id);
-		return "festival";
+		 return "redirect:/";
 		
 	}
 	
