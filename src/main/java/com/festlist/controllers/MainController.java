@@ -1,9 +1,12 @@
 package com.festlist.controllers;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -21,13 +24,13 @@ public class MainController  {
 		this.festivalService = festivalService;
 	}
 	
-	@RequestMapping(value = "", method = RequestMethod.GET)
+	@RequestMapping(value = "/addfest", method = RequestMethod.GET)
 	public String addFest(Model model) {
 		model.addAttribute("festival", new Festival());
 		return "addfest";
 	}
 	
-	@RequestMapping(value ="/festival", method = RequestMethod.GET)
+	@RequestMapping(value ="/", method = RequestMethod.GET)
 	public String festivalList(Model model) {
 		model.addAttribute("festival", festivalService.getAllFestivals());
 		return "festival";
@@ -40,6 +43,13 @@ public class MainController  {
 	return "festival";
 	}
 	
+	
+	@RequestMapping(value ="/delete/{id}", method = RequestMethod.GET)
+	public String deleteFestival(@PathVariable Long id, Model model) {
+		festivalService.deleteFestival(id);
+		return "festival";
+		
+	}
 	
 	
 
