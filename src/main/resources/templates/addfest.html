@@ -3,16 +3,26 @@
 <head>
 <title>Personal Festival List</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css"  
+      href="../static/main.css" th:href="@{/main.css}" />
 </head>
 <body>
 <h1>New Festival</h1>
 <form action="#" th:action="@{/festival}" th:object="${festival}" method="post">
-<p>Name: <input type="text" th:field="*{name}"/></p>
-<p>Country: <input type="text" th:field="*{country}"/></p>
-<p>Email: <input type="text" th:field="*{email}"/></p>
-<p>Link: <input type="text" th:field="*{mainGenre}"/></p>
-<p>Main genre: <input type="text" th:field="*{link}"/></p>
-<p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+<label for="formGroupExampleInput">Name:</label>
+  <input type="text" class="form-control" id="formGroupExampleInput" th:field="*{name}">
+  <label for="formGroupExampleInput">Country:</label>
+  <input type="text" class="form-control" id="formGroupExampleInput" th:field="*{country}">
+  <label for="formGroupExampleInput">Email:</label>
+  <input type="text" class="form-control" id="formGroupExampleInput"  th:field="*{email}">
+ <label for="formGroupExampleInput">Main genre:</label>
+  <input type="text" class="form-control" id="formGroupExampleInput"  th:field="*{mainGenre}">
+ <label for="formGroupExampleInput">Link:</label>
+  <input type="text" class="form-control" id="formGroupExampleInput"  th:field="*{link}">
+<p><input   class="btn btn-success" type="submit" value="Submit"/> <input  class="btn btn-danger" type="reset"  value="Reset"/></p>
 </form>
 </body>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
 </html>

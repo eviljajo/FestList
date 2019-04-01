@@ -3,15 +3,37 @@
 <head>
 <title>Festival List </title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}" />
+
+<link rel="stylesheet" type="text/css"  
+      href="../static/main.css" th:href="@{/main.css}" />
 </head>
 <body>
-<div th:if="${not #lists.isEmpty(festival)}">
-<h2>Festival List</h2>
 
-<div align="left">
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Festival List</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+   <ul class="nav nav-pills mr-auto">
+      <li class="nav-item" >
+        <a class="btn btn-success" href="addfest">Add festival</a>
+      </li>
+      <li class="nav-item" >
+        <a class="btn btn-primary" href="#">Send mail</a>
+      </li>
+ </ul>
+ <div align="right">
 <input type="text" id="searchInput" placeholder="Search...">
 
 </div>
+
+</nav>
+
+<div th:if="${not #lists.isEmpty(festival)}">
+
 <table class="table">
 <tr>
 <th>Id</th>
@@ -30,12 +52,16 @@
 <td th:text="${festival.email}"></td>
 <td th:text="${festival.mainGenre}"></td>
 <td th:text="${festival.link}"></td>
- <td><a th:href="@{/delete/{id}(id=${festival.id})}">Delete</a></td>
+ <td>
+ <a th:href="@{/delete/{id}(id=${festival.id})}" type="button" class="btn btn-danger">Delete</a></td>
 </tr>
 </table>
+
+
 </div>
 </body>
 <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
 <script>
 $(document).ready(function(){
 	  $("#searchInput").on("keyup", function() {
