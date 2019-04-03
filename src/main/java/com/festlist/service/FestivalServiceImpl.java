@@ -50,6 +50,14 @@ public class FestivalServiceImpl implements FestivalService {
 		
 		return festivalRepository.findAll();
 	}
+
+	@Override
+	public Festival getFestivalByName(String name) {
+		
+		return festivalRepository.findByName(name);
+	}
+
+
 	
 	
 

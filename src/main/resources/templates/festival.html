@@ -21,9 +21,7 @@
       <li class="nav-item" >
         <a class="btn btn-success" href="addfest">Add festival</a>
       </li>
-      <li class="nav-item" >
-        <a class="btn btn-primary" href="#">Send mail</a>
-      </li>
+ 
  </ul>
  <div align="right">
 <input type="text" id="searchInput" placeholder="Search...">
@@ -36,23 +34,26 @@
 
 <table class="table">
 <tr>
-<th>Id</th>
+
 <th>Name</th>
 <th>Country</th>
 <th>Email</th>
 <th>Main genre</th>
 <th>Link</th>
+<th>View details</th>
 <th>Delete</th>
 </tr>
 <tbody id="mainTable">
 <tr th:each="festival : ${festival}">
-<td th:text="${festival.id}"></td>
+
 <td th:text="${festival.name}"></td>
 <td th:text="${festival.country}"></td>
 <td th:text="${festival.email}"></td>
 <td th:text="${festival.mainGenre}"></td>
 <td th:text="${festival.link}"></td>
  <td>
+  <a th:href="${'/festival/' + festival.name}"type="button" class="btn btn-primary">View</a></td>
+  <td>
  <a th:href="@{/delete/{id}(id=${festival.id})}" type="button" class="btn btn-danger">Delete</a></td>
 </tr>
 </table>

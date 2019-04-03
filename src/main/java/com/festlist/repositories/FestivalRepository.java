@@ -9,7 +9,8 @@ import com.festlist.model.Festival;
 
 @Repository
 public interface FestivalRepository extends JpaRepository<Festival, Long> {
-	
+
+		Festival findByName(String name);
 
 
 }

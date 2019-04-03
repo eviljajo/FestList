@@ -9,6 +9,7 @@ public interface FestivalService {
 	
 	Festival createFestival(Festival festival);
 	Optional<Festival> getFestival(Long id);
+	Festival getFestivalByName(String name);
 	Festival editFestival(Festival festival);
 	void deleteFestival(Festival festival);
 	void deleteFestival(Long id);
